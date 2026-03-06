@@ -16,7 +16,7 @@ export default function RegionSelector() {
         extensionData: { regionSelected: region },
       }).catch((e) => console.debug(e));
     } catch (error) {
-      console.error('An error occurred:', error);
+      console.error('An error occurred in personalize:', error);
     }
   };
 
