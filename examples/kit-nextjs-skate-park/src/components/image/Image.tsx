@@ -57,15 +57,12 @@ export const Banner: React.FC<ImageProps> = ({ params, fields }) => {
         className="component-content sc-sxa-image-hero-banner"
         style={backgroundStyle}
       >
-        {fields?.Image?.value?.["dam-content-type"] ? (
-          <ContentSdkImage field={fields.Image} />
-        ) : (
-          <ContentSdkImage
-            field={imageField}
-            loading="eager"
-            fetchPriority="high"
-          />
-        )}
+        <ContentSdkImage
+          field={imageField}
+          loading="eager"
+          fetchPriority="high"
+          unoptimized={true}
+        />
       </div>
     </div>
   );
