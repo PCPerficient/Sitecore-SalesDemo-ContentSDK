@@ -57,7 +57,7 @@ export const Banner: React.FC<ImageProps> = ({ params, fields }) => {
         className="component-content sc-sxa-image-hero-banner"
         style={backgroundStyle}
       >
-        {fields?.Image?.value?.contains("dam-content-type") ? (
+        {fields?.Image?.value?.["dam-content-type"] ? (
           <ContentSdkImage field={fields.Image} />
         ) : (
           <ContentSdkImage
