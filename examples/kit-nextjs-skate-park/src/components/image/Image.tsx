@@ -47,18 +47,25 @@ export const Banner: React.FC<ImageProps> = ({ params, fields }) => {
 
   // Get the image src for background-image style
   const backgroundImageUrl = fields?.Image?.value?.src;
-  const backgroundStyle = backgroundImageUrl 
+  const backgroundStyle = backgroundImageUrl
     ? { backgroundImage: `url('${backgroundImageUrl}')` }
     : {};
 
   return (
     <div className={`component hero-banner ${styles}`.trim()} id={id}>
-      <div className="component-content sc-sxa-image-hero-banner" style={backgroundStyle}>
-        <ContentSdkImage
-          field={imageField}
-          loading="eager"
-          fetchPriority="high"
-        />
+      <div
+        className="component-content sc-sxa-image-hero-banner"
+        style={backgroundStyle}
+      >
+        {fields?.Image?.value?.contains("dam-content-type") ? (
+          <ContentSdkImage field={fields.Image} />
+        ) : (
+          <ContentSdkImage
+            field={imageField}
+            loading="eager"
+            fetchPriority="high"
+          />
+        )}
       </div>
     </div>
   );
